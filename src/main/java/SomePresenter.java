@@ -20,6 +20,18 @@ public class SomePresenter extends BasePresenter {
                 .execute();
     }
 
+    public void onSomethingMoreClick() {
+        async(retrieveImportantThing)
+                .withArgs("data")
+                .onSuccess((response) -> {
+                    // Tadaaaaa
+                })
+                .onError(error -> {
+                    // Boooo
+                })
+                .execute();
+    }
+
 
     public void onSomethingElseClick() {
         create(retrieveImportantThing)

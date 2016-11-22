@@ -6,7 +6,13 @@ public class BasePresenter {
         this.useCaseExecutor = useCaseExecutor;
     }
 
-    public <T> T create(T useCase) {
+    public <T extends UseCase<?, ?>> T create(T useCase) {
+        useCase.on(asyncThread());
+        return null;
+    }
+
+    public <T extends UseCase<?, ?>> T async(T useCase) {
+        useCase.on(asyncThread());
         return null;
     }
 
